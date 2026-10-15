@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /site
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Europe/London
+    open-pull-requests-limit: 3
+    groups:
+      npm-all:
+        applies-to: version-updates
+        patterns: ["*"]
+      npm-security:
+        applies-to: security-updates
+        patterns: ["*"]
