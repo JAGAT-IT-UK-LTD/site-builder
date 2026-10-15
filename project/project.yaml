@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: site-builder
+  title: "site-builder"
+  description: "TBC"
+  annotations:
+    github.com/project-slug: JAGAT-IT-UK-LTD/site-builder
+  tags: []
+spec:
+  type: website
+  lifecycle: production
+  owner: user:ruhulamin0001
+  system: "Content / Media"
+x-passport:
+  family: "Content / Media"
+  domains: ["adminruhulamin.co.uk", "aimovieseller.co.uk", "cardrivinginstructor.co.uk"]
+  live_url: "https://adminruhulamin.co.uk"
+  hosting: "Docker image (Dockerfile); compose: docker-compose.yml; Caddy reverse proxy; VPS (mentioned in docs)"
+  apps: "TBC"
+  payments: "TBC"
+  email: "TBC"
+  database: "TBC"
+  env_names: ["CF_API_TOKEN", "GSC_TXT"]
+  ai_agents: []
+  progress: "Last push 2026-07-27. Description: TBC"
+  last_updated: "2026-10-15"
+  updated_by: "Grok Bot (passport generator)"
+  completeness: 39
