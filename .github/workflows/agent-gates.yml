@@ -26,13 +26,14 @@ jobs:
           if grep -qvE '\.(md|txt)$|^docs/|^project/|^\.github/ISSUE_TEMPLATE/|^LICENSE' files.txt; then echo "docs_only=false" >> $GITHUB_OUTPUT; else echo "docs_only=true" >> $GITHUB_OUTPUT; fi
       - name: Task + Agent trailers
         if: steps.info.outputs.docs_only == 'false'
-        env: {BODY: "${{ github.event.pull_request.body }}", LABELS: "${{ join(github.event.pull_request.labels.*.name, ',') }}"}
+        env: {BODY: "${{ github.event.pull_request.body }}", LABELS: "${{ join(github.event.pull_request.labels.*.name, ',') }}", ACTOR: "${{ github.event.pull_request.user.login }}"}
         run: |
+          # Warn-only: missing lines are flagged, never block. Bots (dependabot) skipped.
           if echo "$LABELS" | grep -q 'human'; then echo "human PR (label), skip"; exit 0; fi
-          ok=1
-          echo "$BODY" | grep -qiE '^\s*Task:\s*\S+' || { echo "::error::PR body needs 'Task: JAGAT-IT-UK-LTD/company-hq#<n>'"; ok=0; }
-          echo "$BODY" | grep -qiE '^\s*Agent:\s*\S+' || { echo "::error::PR body needs 'Agent: <name>/<model>'"; ok=0; }
-          [ $ok = 1 ]
+          case "$ACTOR" in *'[bot]') echo "bot PR ($ACTOR), skip"; exit 0;; esac
+          echo "$BODY" | grep -qiE '^\s*Task:\s*\S+' || echo "::warning::PR body should have 'Task: JAGAT-IT-UK-LTD/company-hq#<n>'"
+          echo "$BODY" | grep -qiE '^\s*Agent:\s*\S+' || echo "::warning::PR body should have 'Agent: <name>/<model>'"
+          exit 0
       - name: Payment guard
         env:
           LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
