@@ -4,8 +4,7 @@ One Astro template → many domains → served by a single Caddy container on yo
 Hostinger VPS, deployed from GitHub. Each domain gets a live HTTPS site, domain
 email forwarding into Gmail, and Google Search Console verification.
 
-Infra this is built for: **Hostinger VPS `srv1569293.hstgr.cloud`**, Docker
-Manager, GitHub connected.
+Infra this is built for: a Hostinger VPS running Docker Manager, with GitHub connected.
 
 Currently configured: **1 domain** (`adminruhulamin.co.uk`, status `live`).
 Add the rest to `config/domains.json` — everything else is automatic.
