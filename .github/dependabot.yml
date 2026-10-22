@@ -16,3 +16,4 @@ updates:
       npm-security:
         applies-to: security-updates
         patterns: ["*"]
+        update-types: ["minor", "patch"]
