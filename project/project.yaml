@@ -14,7 +14,7 @@ spec:
   system: "Content / Media"
 x-passport:
   family: "Content / Media"
-  domains: ["adminruhulamin.co.uk", "aimovieseller.co.uk", "cardrivinginstructor.co.uk"]
+  domains: ["adminruhulamin.co.uk", "savemoneytricks.co.uk", "aimovieseller.co.uk", "earningfreemoney.co.uk", "manvanwithequipment.co.uk"]
   live_url: "https://adminruhulamin.co.uk"
   hosting: "Docker image (Dockerfile); compose: docker-compose.yml; Caddy reverse proxy; VPS (mentioned in docs)"
   apps: "TBC"
@@ -23,7 +23,7 @@ x-passport:
   database: "TBC"
   env_names: ["CF_API_TOKEN", "GSC_TXT"]
   ai_agents: []
-  progress: "Last push 2026-07-27. Description: TBC"
+  progress: "Source of the 5 static nginx sites on uk-vps (adminruhulamin, savemoneytricks, aimovieseller, earningfreemoney, manvanwithequipment; live HTML matches preview/). cardrivinginstructor.co.uk and carestaffsync.co.uk moved to their own repos (veh-find-instructor, biz-care-staff-sync). Live server folders have drifted from git (privacy/terms, ga-consent exist only on the server) - reconcile before any rebuild. 2026-10-27: robots.txt + /sitemap.xml fix merged (bde9405), not deployed."
   last_updated: "2026-10-15"
   updated_by: "Grok Bot (passport generator)"
   completeness: 39
