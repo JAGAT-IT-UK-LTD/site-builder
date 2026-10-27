@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# Sitemap URL is rewritten per-domain at deploy time by scripts/deploy-site.sh
-Sitemap: https://REPLACE_DOMAIN/sitemap-index.xml
